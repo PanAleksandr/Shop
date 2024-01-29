@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="346.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.shopp.LoginController">
+    <children>
+        <AnchorPane fx:id="login_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="375.0">
+            <children>
+                <VBox layoutX="85.0" layoutY="91.0" prefHeight="235.0" prefWidth="205.0">
+                    <children>
+                        <TextField fx:id="login_username" prefHeight="25.0" prefWidth="81.0" promptText="Username" translateY="50.0" />
+                        <Label fx:id="errorLabel" prefHeight="18.0" prefWidth="180.0" translateX="12.0" translateY="126.0" />
+                        <PasswordField fx:id="login_password" promptText="Password" translateY="60.0" />
+                        <Button fx:id="login_btn" mnemonicParsing="false" onAction="#loginAccount" prefHeight="35.0" prefWidth="61.0" text="Login" textAlignment="CENTER" translateX="76.0" translateY="100.0" wrapText="true" />
+                        <Label text="Don't have an account?" translateX="7.0" translateY="135.0" />
+                    </children>
+                </VBox>
+                <Label layoutX="142.0" layoutY="59.0" text="Welcome" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="21.0" />
+                    </font>
+                </Label>
+                <StackPane prefHeight="150.0" prefWidth="200.0" />
+                <ComboBox fx:id="login_role" layoutX="225.0" layoutY="326.0" onAction="#switchForm" prefHeight="25.0" prefWidth="111.0" promptText="Choose role" />
+            <Hyperlink fx:id="anonymous_Hyperlink" layoutX="281.0" layoutY="235.0" onAction="#handleAnonymousLink" text="Anonymous" />
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="admin_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="375.0" visible="false">
+            <children>
+                <VBox layoutX="85.0" layoutY="91.0" prefHeight="235.0" prefWidth="205.0">
+                    <children>
+                        <TextField fx:id="admin_username" prefHeight="25.0" prefWidth="81.0" promptText="Username" translateY="50.0" />
+                        <Label fx:id="errorLabel1" prefHeight="18.0" prefWidth="180.0" translateX="12.0" translateY="126.0" />
+                        <PasswordField fx:id="admin_password" promptText="Password" translateY="60.0" />
+                        <Button fx:id="admin_signupBtn" mnemonicParsing="false" onAction="#registerAdmin" text="Sign up" textAlignment="CENTER" translateX="76.0" translateY="115.0" wrapText="true" />
+                        <Label text="Already have an account?" translateX="7.0" translateY="135.0" />
+                        <Hyperlink fx:id="admin_signin" onAction="#signInForm" text="Sign In" translateX="146.0" translateY="113.0" />
+                        <PasswordField fx:id="admin_cPassword" promptText="Confirm Password" />
+                    </children>
+                </VBox>
+                <Label layoutX="113.0" layoutY="59.0" text="Register admin" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="21.0" />
+                    </font>
+                </Label>
+                <StackPane prefHeight="150.0" prefWidth="200.0" />
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="register_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="375.0" visible="false">
+            <children>
+                <VBox layoutX="85.0" layoutY="91.0" prefHeight="235.0" prefWidth="205.0">
+                    <children>
+                  <TextField fx:id="register_fullName" prefHeight="25.0" prefWidth="81.0" promptText="Full Name" translateY="50.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TextField>
+                        <TextField fx:id="register_username" prefHeight="25.0" prefWidth="81.0" promptText="Username" translateY="50.0" />
+                        <Label fx:id="errorLabel11" prefHeight="18.0" prefWidth="180.0" translateX="12.0" translateY="126.0" />
+                        <PasswordField fx:id="register_password" promptText="Password" translateY="100.0" />
+                  <DatePicker fx:id="birth_date" prefHeight="25.0" prefWidth="215.0" promptText="Date of birth" translateY="30.0" />
+                        <Button fx:id="register_signup" mnemonicParsing="false" onAction="#registerregister" text="Sign up" textAlignment="CENTER" translateX="76.0" translateY="115.0" wrapText="true" />
+                        <Label text="Already have an account?" translateX="7.0" translateY="135.0" />
+                        <Hyperlink fx:id="register_signin" onAction="#signInForm" text="Sign In " translateX="146.0" translateY="113.0" />
+                        <PasswordField fx:id="register_cPassword" promptText="Confirm Password" translateY="10.0" />
+                    </children>
+                </VBox>
+                <Label layoutX="113.0" layoutY="59.0" prefHeight="31.0" prefWidth="149.0" text="     Register" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="21.0" />
+                    </font>
+                </Label>
+                <StackPane prefHeight="150.0" prefWidth="200.0" />
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="financier_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="375.0" visible="false">
+            <children>
+                <VBox layoutX="85.0" layoutY="91.0" prefHeight="235.0" prefWidth="205.0">
+                    <children>
+                        <TextField fx:id="financier_username" prefHeight="25.0" prefWidth="81.0" promptText="Username" translateY="50.0" />
+                        <Label fx:id="errorLabel111" prefHeight="18.0" prefWidth="180.0" translateX="12.0" translateY="126.0" />
+                        <PasswordField fx:id="financier_password" promptText="Password" translateY="60.0" />
+                        <Button fx:id="financier_signupBtn" mnemonicParsing="false" onAction="#registerfinancier" text="Sign up" textAlignment="CENTER" translateX="76.0" translateY="115.0" wrapText="true" />
+                        <Label text="Already have an account?" translateX="7.0" translateY="135.0" />
+                        <Hyperlink fx:id="financier_sigin" onAction="#signInForm" text="Sign In" translateX="146.0" translateY="113.0" />
+                        <PasswordField fx:id="financier_cPassword" promptText="Confirm Password" />
+                    </children>
+                </VBox>
+                <Label layoutX="101.0" layoutY="59.0" text="Register financier" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="21.0" />
+                    </font>
+                </Label>
+                <StackPane prefHeight="150.0" prefWidth="200.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

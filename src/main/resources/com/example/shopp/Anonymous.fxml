@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.shopp.AnonymousController">
+    <children>
+        <AnchorPane fx:id="main_form" prefHeight="489.0" prefWidth="869.0">
+            <children>
+                <BorderPane layoutY="-18.0" prefHeight="430.0" prefWidth="607.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-18.0">
+                    <left>
+                        <AnchorPane prefHeight="384.0" prefWidth="185.0" translateX="16.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane layoutX="-22.0" layoutY="100.0" prefHeight="123.0" prefWidth="178.0" AnchorPane.bottomAnchor="277.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+
+                                        <Label fx:id="greet_username" layoutX="72.0" layoutY="31.0" styleClass=".btn" text="Welcome" />
+                                    </children>
+                                </AnchorPane>
+                                <Button fx:id="menu_btn" layoutX="18.0" layoutY="176.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="63.0" prefWidth="139.0" text="Menu">
+
+                                </Button>
+                                <Line endX="114.4595947265625" endY="-7.62939453125E-6" layoutX="77.0" layoutY="94.0" startX="-93.0" startY="-7.62939453125E-6" />
+                                <Line endX="28.666671752929688" endY="322.3333435058594" layoutX="163.0" layoutY="105.0" startX="27.9595947265625" startY="-105.62623596191406" />
+                            </children>
+                        </AnchorPane>
+                    </left>
+                    <top>
+                        <AnchorPane prefHeight="38.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <Label layoutX="384.0" layoutY="38.0" text="Shop">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font></Label>
+                                <Line endX="578.2929077148438" endY="17.000003814697266" layoutX="289.0" layoutY="43.0" startX="-289.0" startY="17.000003814697266" />
+                            </children></AnchorPane>
+                    </top>
+                    <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane fx:id="customers_form" layoutX="14.0" prefHeight="449.0" prefWidth="663.0" visible="false">
+                                    <children>
+                                        <Label layoutX="32.0" layoutY="25.0" text="Customers">
+                                            <font>
+                                                <Font size="17.0" />
+                                            </font>
+                                        </Label>
+                                        <TableView fx:id="customers_tableView" layoutX="10.0" layoutY="59.0" prefHeight="193.0" prefWidth="643.0">
+                                            <columns>
+                                                <TableColumn fx:id="customers_col_customerID" prefWidth="160.6666316986084" text="Customer ID" />
+                                                <TableColumn fx:id="customers_col_total" prefWidth="154.0000457763672" text="Total(Eur)" />
+                                                <TableColumn fx:id="customers_col_date" minWidth="3.3333740234375" prefWidth="136.66668701171875" text="Date" />
+                                                <TableColumn fx:id="customers_col_cashier" minWidth="0.0" prefWidth="193.99996948242188" text="Cashier" />
+                                            </columns>
+                                        </TableView>
+                                        <Button fx:id="exportToJsonButton" layoutX="420.0" layoutY="364.0" mnemonicParsing="false" onAction="#exportToJson" prefHeight="72.0" prefWidth="137.0" text="Export to JSON" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="menu_form" layoutX="15.0" prefHeight="452.0" prefWidth="664.0">
+                                    <children>
+                                        <AnchorPane layoutX="4.0" layoutY="8.0" prefHeight="433.0" prefWidth="482.0">
+                                            <children>
+                                                <ScrollPane fx:id="menu_scrollPane" prefHeight="431.0" prefWidth="391.0">
+                                                    <content>
+                                                        <GridPane fx:id="menu_gridPane" prefHeight="33.0" prefWidth="100.0" translateX="5.0" translateY="5.0">
+                                                            <columnConstraints>
+                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                            </columnConstraints>
+                                                            <padding>
+                                                                <Insets left="10.0" top="10.0" />
+                                                            </padding>
+                                                        </GridPane>
+                                                    </content>
+                                                </ScrollPane>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="401.0" layoutY="8.0" prefHeight="425.0" prefWidth="258.0" visible="false">
+                                            <children>
+                                                <TableView fx:id="menu_tableView" layoutX="2.0" onMouseClicked="#menuSelectOrder" prefHeight="212.0" prefWidth="254.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="menu_col_productName" prefWidth="93.3333740234375" text="Product Name" />
+                                                        <TableColumn fx:id="menu_col_quantity" text="Quantity" />
+                                                        <TableColumn fx:id="menu_col_price" prefWidth="78.6666259765625" text="Price(Eur)" />
+                                                    </columns>
+                                                </TableView>
+                                                <Label layoutX="82.0" layoutY="236.0" text="Total: " />
+                                                <Label fx:id="menu_total" layoutX="140.0" layoutY="236.0" text="0.0(Eur)" />
+                                                <Button fx:id="menu_payBtn" layoutX="19.0" layoutY="326.0" mnemonicParsing="false" onAction="#menuPayBtn" prefHeight="25.0" prefWidth="220.0" text="Pay" />
+                                                <Button fx:id="menu_removeBtn" layoutX="19.0" layoutY="367.0" mnemonicParsing="false" onAction="#menuRemoveBtn" prefHeight="43.0" prefWidth="95.0" text="Remove" />
+                                                <Button fx:id="menu_commentBtn" layoutX="148.0" layoutY="367.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="91.0" text="Comment" />
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="inventory_form" layoutX="14.0" prefHeight="439.0" prefWidth="664.0" visible="false">
+                                    <children>
+                                        <AnchorPane prefHeight="205.0" prefWidth="662.0">
+                                            <children>
+                                                <TableView fx:id="inventory_tableView" layoutX="14.0" onMouseClicked="#inventorySelectData" prefHeight="205.33333333333334" prefWidth="662.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="inventory_col_productID" prefWidth="75.0" text="Product ID" />
+                                                        <TableColumn fx:id="inventory_col_productName" prefWidth="101.33332061767578" text="Product Name" />
+                                                        <TableColumn fx:id="inventory_col_type" prefWidth="80.66661071777344" text="Type" />
+                                                        <TableColumn fx:id="inventory_col_stock" prefWidth="83.99993896484375" text="Stock" />
+                                                        <TableColumn fx:id="inventory_col_price" prefWidth="81.99993896484375" text="Price" />
+                                                        <TableColumn fx:id="inventory_col_status" prefWidth="85.33334350585938" text="Status" />
+                                                        <TableColumn fx:id="inventory_col_date" prefWidth="85.33334350585938" text="Date" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="1.0" layoutY="205.0" prefHeight="222.0" prefWidth="660.0">
+                                            <children>
+                                                <Label layoutX="21.0" layoutY="32.0" text="Product ID:" />
+                                                <TextField fx:id="inventory_productID" layoutX="115.0" layoutY="28.0" />
+                                                <Label layoutX="21.0" layoutY="61.0" text="Product Name:" />
+                                                <TextField fx:id="inventory_productName" layoutX="115.0" layoutY="57.0" />
+                                                <Label layoutX="21.0" layoutY="93.0" text="Type" />
+                                                <Label layoutX="301.0" layoutY="32.0" text="Stock:" />
+                                                <Label layoutX="292.0" layoutY="60.0" text="Price(Eur)" />
+                                                <TextField fx:id="inventory_stock" layoutX="356.0" layoutY="28.0" prefHeight="25.0" prefWidth="99.0" promptText="0" />
+                                                <TextField fx:id="inventory_price" layoutX="356.0" layoutY="56.0" prefHeight="25.0" prefWidth="99.0" promptText="0.0Eur" />
+                                                <ComboBox fx:id="inventory_type" layoutX="115.0" layoutY="98.0" onAction="#inventoryTypeList" prefWidth="150.0" promptText="Choose Type..." />
+                                                <AnchorPane layoutX="522.0" layoutY="22.0" prefHeight="111.0" prefWidth="122.0">
+                                                    <children>
+                                                        <ImageView fx:id="inventory_imageView" fitHeight="111.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true" />
+                                                    </children>
+                                                </AnchorPane>
+                                                <Button fx:id="inventory_importBtn" layoutX="545.0" layoutY="140.0" mnemonicParsing="false" onAction="#inventoryImportBtn" prefHeight="33.0" prefWidth="87.0" text="Import" />
+                                                <Button fx:id="inventory_addBtn" layoutX="56.0" layoutY="174.0" mnemonicParsing="false" onAction="#inventoryAddBtn" prefHeight="33.0" prefWidth="87.0" text="Add" />
+                                                <Button fx:id="inventory_updateBtn" layoutX="177.0" layoutY="174.0" mnemonicParsing="false" onAction="#inventoryUpdateBtn" prefHeight="33.0" prefWidth="87.0" text="Update" />
+                                                <Button fx:id="inventory_clearBtn" layoutX="298.0" layoutY="174.0" mnemonicParsing="false" onAction="#inventoryClearBtn" prefHeight="33.0" prefWidth="87.0" text="Clear" />
+                                                <Button fx:id="inventory_deleteBtn" layoutX="406.0" layoutY="174.0" mnemonicParsing="false" onAction="#inventoryDeleteBtn" prefHeight="33.0" prefWidth="87.0" text="Delete" />
+                                                <Label layoutX="292.0" layoutY="93.0" text="Status:" />
+                                                <ComboBox fx:id="inventory_status" layoutX="356.0" layoutY="89.0" onAction="#inventoryStatusList" prefHeight="25.0" prefWidth="128.0" promptText="Choose Status..." />
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="password_form" layoutX="14.0" prefHeight="434.0" prefWidth="663.0" visible="false">
+                                    <children>
+                                        <Text layoutX="252.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change passWord" textAlignment="CENTER" wrappingWidth="159.90167236328125">
+                                            <font>
+                                                <Font name="System Bold" size="17.0" />
+                                            </font>
+                                        </Text>
+                                        <AnchorPane layoutX="171.0" layoutY="102.0" prefHeight="249.0" prefWidth="321.0">
+                                            <children>
+                                                <Button fx:id="changePassBtn" layoutX="86.0" layoutY="210.0" mnemonicParsing="false" onAction="#changePassBtn" prefHeight="25.0" prefWidth="151.0" text="Change Password" />
+                                                <TextField fx:id="fp_username" layoutX="87.0" layoutY="28.0" promptText="Username" />
+                                                <PasswordField fx:id="cp_Password" layoutX="86.0" layoutY="89.0" promptText="Current Password" />
+                                                <PasswordField fx:id="np_newPassword" layoutX="86.0" layoutY="134.0" promptText="New Password" />
+                                                <PasswordField fx:id="np_confirmPassword" layoutX="87.0" layoutY="169.0" promptText="Confirmation Password" />
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="dashboard_form" layoutX="15.0" prefHeight="395.0" prefWidth="661.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <AnchorPane layoutY="92.0" prefHeight="200.0" prefWidth="397.0">
+                                            <children>
+                                                <AnchorPane layoutX="17.0" layoutY="14.0" prefHeight="57.0" prefWidth="364.0">
+                                                    <children>
+                                                        <Label layoutX="24.0" layoutY="20.0" text="Total registers:" />
+                                                        <Label fx:id="dashboard_TS" layoutX="173.0" layoutY="18.0" text="0">
+                                                            <font>
+                                                                <Font size="15.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="17.0" layoutY="61.0" prefHeight="57.0" prefWidth="364.0">
+                                                    <children>
+                                                        <Label layoutX="24.0" layoutY="20.0" text="Total financiers:" />
+                                                        <Label fx:id="dashboard_TT" layoutX="173.0" layoutY="18.0" text="0">
+                                                            <font>
+                                                                <Font size="15.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </AnchorPane>
+                                            </children></AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="addfinancier_form" layoutX="24.0" layoutY="10.0" prefHeight="384.0" prefWidth="400.0" visible="false">
+                                    <children>
+                                        <AnchorPane prefHeight="185.0" prefWidth="635.0">
+                                            <children>
+                                                <TableView fx:id="addfinancier_tableView" layoutY="-1.0" prefHeight="245.0" prefWidth="623.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="addfinancier_col_financierID" prefWidth="75.0" text="financier ID" />
+                                                        <TableColumn fx:id="addfinancier_col_name" prefWidth="268.6666793823242" text="Name" />
+                                                        <TableColumn fx:id="addfinancier_col_dateInsert" prefWidth="194.66671752929688" text="Date Insert" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="12.0" layoutY="182.0" prefHeight="221.0" prefWidth="647.0">
+                                            <children>
+                                                <Button fx:id="addfinancier_deleteBtn" layoutX="477.0" layoutY="89.0" mnemonicParsing="false" onAction="#setAddfinancierDeleteBtn" prefHeight="43.0" prefWidth="89.0" text="Delete" />
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="addregister_form" layoutX="34.0" layoutY="20.0" prefHeight="384.0" prefWidth="400.0" visible="false">
+                                    <children>
+                                        <AnchorPane layoutY="5.0" prefHeight="174.0" prefWidth="631.0">
+                                            <children>
+                                                <TableView fx:id="addregister_tableView" layoutX="7.0" prefHeight="213.0" prefWidth="627.0" AnchorPane.bottomAnchor="-39.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="0.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="addregister_registerNumber" prefWidth="94.66670417785645" text="register Number" />
+                                                        <TableColumn fx:id="addregister_name" prefWidth="77.99996948242188" text="   UserName" />
+                                                        <TableColumn fx:id="addregister_fullname" prefWidth="76.6666259765625" text="FullName" />
+                                                        <TableColumn fx:id="addregister_dateInsert" prefWidth="112.66671752929688" text=" Date Insert" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="1.0" layoutY="251.0" prefHeight="119.0" prefWidth="635.0">
+                                            <children>
+                                                <Button fx:id="addregister_deleteBtn" layoutX="558.0" layoutY="76.0" mnemonicParsing="false" onAction="#setAddregisterDeleteBtn" prefHeight="31.0" prefWidth="69.0" text="Delete" AnchorPane.bottomAnchor="66.66666666666667" AnchorPane.rightAnchor="4.0" />
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </center>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
